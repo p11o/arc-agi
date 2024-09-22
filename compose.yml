@@ -1,0 +1,10 @@
+services:
+  cli:
+    image: pytorch/pytorch:2.2.0-cuda12.1-cudnn8-runtime
+    command:
+    - sleep
+    - infinity
+    working_dir: /src
+    volumes:
+    - /media/matthew/disk1/Data/kaggle/arc-agi:/data
+    - ./src:/src
