@@ -23,12 +23,6 @@ def to_df(challenges, solutions):
         for i, datum in enumerate(data):
             _input, _output = datum["input"], datum["output"]
 
-            try:
-                df_array.append([f"{group_id}{i}", group_id, datum.get("type", "train"), pd.array(_input), pd.array(_output)])
-            except Exception as e:
-                print("input", _input)
-                print("output", _output)
-                raise e
+            df_array.append([f"{group_id}{i}", group_id, datum.get("type", "train"), pd.array(_input), pd.array(_output)])
+
     return pd.DataFrame(df_array, columns=["id", "group_id", "type", "input", "output"])
-
-
