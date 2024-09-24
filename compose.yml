@@ -1,10 +1,11 @@
 services:
   cli:
-    image: pytorch/pytorch:2.2.0-cuda12.1-cudnn8-runtime
+    build: .
     command:
     - sleep
     - infinity
     working_dir: /src
     volumes:
-    - /media/matthew/disk1/Data/kaggle/arc-agi:/data
+    # set this in .env
+    - ${ARC_AGI_DATA}:/data
     - ./src:/src
