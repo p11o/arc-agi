@@ -54,7 +54,7 @@ _v_rotate_color = np.vectorize(_rotate_color, otypes=[np.uint8])
 
 def rotate_color(row):
     new_rows = []
-    for i in range(1, 9): # 1 -> 9 because we skip 0's since they are blank
+    for i in range(1, 9): # 1 -> 9 because we skip 0's and the current value
         new_row = row.copy()
         new_row['id'] = f"{new_row['id']}{i}"
         new_row['type'] = 'train'
