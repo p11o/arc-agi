@@ -9,3 +9,16 @@ services:
     # set this in .env
     - ${ARC_AGI_DATA}:/data
     - ./src:/src
+  gpu:
+    image: torch-notebook:latest
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities:
+            - gpu
+    ports:
+    - 8888:8888
+
