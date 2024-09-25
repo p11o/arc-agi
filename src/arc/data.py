@@ -73,3 +73,8 @@ def augment_data(df):
                 new_rows.append(r)
         rows = [*rows, *new_rows]
     return pd.DataFrame(rows)
+
+if __name__ == '__main__':
+    df = to_df(challenges, solutions)
+    aug = augment_data(df)
+    print(aug)
