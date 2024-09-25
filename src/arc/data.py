@@ -32,7 +32,7 @@ def to_df(challenges, solutions):
 def rotate_90(row):
     new_rows = []
     # Rotate 90, 180, and 270 degrees
-    for k in range(1, 4):  # k=1 is 90°, k=2 is 180°, k=3 is 270°
+    for k in range(1, 4):
         new_row = row.copy()
         new_row['id'] = f"{new_row['id']}{k}"
         new_row['type'] = 'train'
@@ -64,7 +64,6 @@ def rotate_color(row):
     return new_rows
 
 def augment_data(df):
-    # New DataFrame to hold augmented data
     rows = [row for _, row in df.iterrows()]
 
     for fn in [rotate_90, rotate_color]:
