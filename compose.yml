@@ -1,6 +1,14 @@
 services:
   cli:
     build: .
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities:
+            - gpu
     command:
     - sleep
     - infinity
@@ -9,6 +17,7 @@ services:
     # set this in .env
     - ${ARC_AGI_DATA}:/data
     - ./src:/src
+    - torch-models:/root/.cache/torch
   gpu:
     image: torch-notebook:latest
     deploy:
@@ -22,3 +31,5 @@ services:
     ports:
     - 8888:8888
 
+volumes:
+  torch-models:
